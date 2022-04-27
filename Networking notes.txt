@@ -1,0 +1,14 @@
+-LEARN AND PRACTICE THE NETWORKING STUFF
+-router only care about next hop (nothing else)
+- u learn 10x more from problems then none
+- never get impatient with others with problems, CUZ THIS WILL BE WORK AS WELL, and also its a place to learn!
+
+25 apr 2022
+Incorrect: ping a machine and its down (not conclusive, could be ICMP disabled)
+No networking protocol that uses hostname (for humans, machine performs DNS lookup to find IP from hostname)
+50ms is high speed, any more, may have issues
+Tracert for identifying bootlenecks
+Good practice to always use FQDN: myserver.mydomain.com (not just host name)
+Anything start with 127 is a loopback.
+Everytime browser go to website, doing dns lookup (finding IP from host name)
+Curl returns full page source of website

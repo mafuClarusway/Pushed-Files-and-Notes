@@ -1,0 +1,13 @@
+26 Apr 2022:
+-things are moving to serverless, but EC2 still popular and big part of AWS
+-ec2 essentially virtual machine in cloud
+-purpose type models (memorize):
+Burstable (T)
+General (M)
+Computer Optimized (C)
+Memory Optimized (R)
+Storage Optimized (D)
+
+By default, every incoming connectino is blocked
+Every security group rule is stateful, meaning only need to specifiy in bound room.
+0.0.0.0/0 everything else (internet)
