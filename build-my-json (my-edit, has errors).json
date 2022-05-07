@@ -1,0 +1,39 @@
+{ 
+    "Description": "This is a description of my house",
+
+    "House" {
+        "color": "blue:",
+        "rooms": {
+            "bedrooms": 3,
+            "bathrooms": 2.5
+        },
+        "garage": "yes",
+        "driveway": "yes",
+        "occupants:": [
+            {
+                "relationship": "dad",
+                "name": "Surendra",
+                "occupation": "lawyer",
+                "organization": "Department of State"
+            },
+            {
+                "relationship": "mom",
+                "name": "Priya",
+                "occupation": "actor",
+                "organization": "independent"
+            },
+            {
+                "relationship": "brother",
+                "name": "Akbar",
+                "occupation": "student",
+                "organization": "Washington High School"
+            },
+            {
+                "relationship": "sister",
+                "name": "Sheila",
+                "occupation": "student",
+                "organization": "University of Clarusway"
+            }
+        ]   
+    }
+}

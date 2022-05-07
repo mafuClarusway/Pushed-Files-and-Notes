@@ -1,0 +1,43 @@
+# This is a description of my house
+# my house is blue
+# it has 3 bedrooms, 2.5 baths
+# it has a 2 car garage
+# it has a driveway
+# the following people live in my house: Dad, Mom, Brother, Sister
+# my Dad's name is Surendra he is a lawyer and works at Department of State
+# my Mom's name is Priya she is an actor and works independently
+# my Brother is Akbar he is a high school student and goes to Washington High School
+# my Sister is Sheila who is in College and goes to University of Clarusway
+# I have 2 neighbors, Mary and Chen
+
+Description: This is a description of my house
+
+House:
+  color: blue
+  rooms: 
+    bedrooms: 3
+    bathrooms: 2.5
+  garage: 2-car
+  driveway: yes
+  occupants:
+  - relationship: dad
+    name: Surendra
+    occupation: lawyer
+    organization: Department of State
+  - relationship: mom
+    name: Priya
+    occupation: actor
+    organization: independent
+  - relationship: brother
+    name: Akbar
+    occupation: student
+    organization: Washington High School
+  - relationship: sister
+    name: Sheila
+    occupation: student
+    organization: University of Clarusway
+  neightbors:
+  - Mary
+  - Chen
+
+# VALDIATE YAML WITH YAML VALIDATOR AT CODEBEAUTIFY; it's valid!

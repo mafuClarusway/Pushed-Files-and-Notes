@@ -7,7 +7,40 @@ General (M)
 Computer Optimized (C)
 Memory Optimized (R)
 Storage Optimized (D)
+By default, every incoming connection is blocked
 
-By default, every incoming connectino is blocked
-Every security group rule is stateful, meaning only need to specifiy in bound room.
+Every security group rule is stateful, meaning only need to specify inbound rules 
 0.0.0.0/0 everything else (internet)
+
+—----------------------
+IAM USERS - 28 Apr 2022
+-deny permission is default and takes precedence over allow
+-AWS managed policies: default settings created by AWS
+-customer managed policies: custom settings created by each account for user groups
+-inline policies: custom settings assigned to a single account or group
+
+—-------------
+7 May 2022
+YAML vs JSON (data serialization languages used for storing data):
+-yaml is case sensitive
+-serialization takes some language and makes it human or machine readable
+-YAML
+-| pipe for new line, > for space
+-hyphen “-” used to indicate start of a list item
+-tab not allowed so use spaces?
+-no way to comment in JSON
+-JSON:
+	-everything in quotes except numbers, and booleans, and null?
+	-square bracket “[ ]” indicates array
+	-curly bracket “{ }” indicates object
+-for web-apps, most likely strictly using JSON, which is used primarily to transmit data between server and web application
+-should be able to convert between JSON and YAML easily
+-JSON more tedious to type but more well defined with clear-cut rules
+-use converter to make YAML into JSON files!!
+-YAML slim and flexible, better for configuration, while JSON rigid, better for data interchange
+
+Cloud Formation:
+-console useful but not good for large scale
+-CloudFormation is recommended
+
+
