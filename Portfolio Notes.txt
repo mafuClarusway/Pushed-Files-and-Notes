@@ -1,0 +1,24 @@
+Command to update github with local changes:
+Git add
+Git commit -m “...”
+Git push
+
+Command to update local with github changes:
+Git pull
+
+For projects:
+*keep digging and don’t give up
+*share knowledge
+
+Framework: streamline of web services to make it actually work (like databases, code for the website, etc.) 
+-analogy is if u need to write something, framework can be the provided pencil and table
+
+-flash with python does not need to compile
+
+-each route needs to be defined and assigned to a path
+
+-jinja allows using html as response instead of just strings
+
+-when using dynamic linking with html files with flask, need to place “templates” and the app.py on the same hierarchy
+
+

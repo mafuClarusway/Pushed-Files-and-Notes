@@ -1,0 +1,6 @@
+5 May 2022
+-printenv, env, echo ($), set, to find environment variables
+-EXPORT to create envoriment/global variables
+-unset to delete variable (but remember set is not to create, but find variable)
+-any time new software installed, PATH variable should be updated
+
