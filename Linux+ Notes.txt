@@ -4,3 +4,7 @@
 -unset to delete variable (but remember set is not to create, but find variable)
 -any time new software installed, PATH variable should be updated
 
+9 May 2022
+-Command not found means either not installed or not in the path (special environment variable)
+-yum needs just update, and use autoremove
+-apt needs update and upgrade, and remove works entirely
