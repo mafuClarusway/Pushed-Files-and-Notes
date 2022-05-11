@@ -43,4 +43,13 @@ Cloud Formation:
 -console useful but not good for large scale
 -CloudFormation is recommended
 
-
+10 May 2022
+-NGINX- open source web server
+-its a web tier that connects users to app servers (which are connected to DB)
+-need to know how to spin up ec2 and setup html nginx web server
+-also need to know how to use bash script to automate above
+-ec2 needs to allow security group rule: html port 80 (ssh port 22)
+-w/ amazon linux 2, to start a service, do sudo systemctl
+-when curling to check a web page, can use public IP or public DNS
+-sudo systemctl enable nginx to enable launch on startup
+-”-xe” option for bin bash automation command will show used commands in the system log
