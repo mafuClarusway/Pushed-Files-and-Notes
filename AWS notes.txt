@@ -53,3 +53,15 @@ Cloud Formation:
 -when curling to check a web page, can use public IP or public DNS
 -sudo systemctl enable nginx to enable launch on startup
 -”-xe” option for bin bash automation command will show used commands in the system log
+
+14 May 2022
+-when run out of space what should we do?
+-for cool colors in linux: export PS1="\e[1;31m[\u@\h \W]$ \e[0m"
+-*CHECK WHAT HE SAID ABOUT IP 12:29PM
+-if you reboot instance, it will unmount new drives
+-linux os uses a file called fstab (file system tab).  When the system reboots, linux will check this file, and then mount files based on it, so we should edit this file.
+-UUID: universally unique id
+-best practice, make backup copy of important file before editing it
+-info on fstab: https://wiki.debian.org/fstab
+-*REMEMBER TO UNMOUNT: sudo umount -a
+-cannot unmount main (root) volume, as that will automatically terminate with the instance

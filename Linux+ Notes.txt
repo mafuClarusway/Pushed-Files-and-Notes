@@ -8,3 +8,44 @@
 -Command not found means either not installed or not in the path (special environment variable)
 -yum needs just update, and use autoremove
 -apt needs update and upgrade, and remove works entirely
+
+12 May 2022
+-”cat /etc/passwd” for user file
+-tee outputs to screen and file at same time
+-grem is a filter to find lines with patterns
+-cut deals with finding columns of data based on delimiter and column number 
+-tr (translate) used to change one character to another
+-later use sed to replace multiple characters
+-wc counts lines (-l), words (-w), characters (-c)
+-uniq is case sensitive (as is most things by default) and only compares files next to each other, need to sort before
+-sort ignores case by default (for some reason)
+-can pipe through multiple pipes, each one having different input and output streams
+-comm shows in common, file 1 col 1, fil 2 col 2, whats in common col 3.
+
+-hands on examples:
+“cat mylist.txt | sort | tr [A-Z] [a-z] |  uniq”
+“cat countries.csv | cut -d"," -f3 | tail -4 | sort | uniq | tee continents.txt “
+” cat /etc/passwd | cut -d: -f1 | sort”
+
+Control operators:
+-semicolon “;” ro run more than one command in a single line
+-”&” means run in background
+-”$?” Checks exit code of last command (0 mean is worked, anything else is the error code)
+-”&&” and, “||” or, both for if else, “#” as comment
+
+-for error code, look at manpage or help file of the used command
+-&& and only runs if first command succeeds
+-|| or only runs if first command fails
+-\ escape character that tells system to treat the next character as-is and not interpret
+
+-example if then statement:
+“find clarusway.txt && cat clarusway.txt || echo Too early/!”
+
+-Again two way to do same thing:
+-cat file.txt | grep pattern
+-grep pattern file.txt
+-should give similar results if not exact
+
+-”-i” flag for case insensitivity in grep
+-to delete with translate “tr”, need -d flag because cannot use empty string as argument
+-cat << “end of file code” > file.txt

@@ -1,0 +1,12 @@
+Command to update github with local changes:
+Git add
+Git commit -m “...”
+Git push
+
+Command to update local with github changes:
+Git pull
+
+To do:
+-catch up on preclass
+-watch missed session recordings
+-flipgrid

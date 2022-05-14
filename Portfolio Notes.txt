@@ -1,11 +1,4 @@
-Command to update github with local changes:
-Git add
-Git commit -m “...”
-Git push
-
-Command to update local with github changes:
-Git pull
-
+27 Apr 2022
 For projects:
 *keep digging and don’t give up
 *share knowledge
@@ -13,7 +6,7 @@ For projects:
 Framework: streamline of web services to make it actually work (like databases, code for the website, etc.) 
 -analogy is if u need to write something, framework can be the provided pencil and table
 
--flash with python does not need to compile
+-flask with python does not need to compile
 
 -each route needs to be defined and assigned to a path
 
@@ -21,4 +14,30 @@ Framework: streamline of web services to make it actually work (like databases, 
 
 -when using dynamic linking with html files with flask, need to place “templates” and the app.py on the same hierarchy
 
+11 may 2022:
+*may be assigned project due in a week, can work with team
+-one job of flask to grab inputs
+-AWS has something like eldap called cognito (Query string)
+-path name of file you are accessing
+-parameters within query string determine settings of page (list of key value pairs separated by ampersand) 
+-anchor is sort of bookmark, specific spot on page
+
+-remember with render template parameters (e.g. x=y)  left side is the variable that gets sent to html, and right is the value
+
+-redirect and url_for library allow for redirecting links
+
+-can use html code inline python app file, but most developer prefer put in separate file and use ginji
+
+-if you have decorator and specified path, it will override the dynamic path (i.e. any path name thats not specified)
+
+HTTP Methods:
+Get: ask for a specific document (can be cached, and remain in browser history, restriction on data length)
+Post: send request to update data (never cache, not remain in browser history, browser can keep data by some applications (e.g. password manager))
+Delete: delete specified resources
+Head: ask for information about document not the document itself (metadata)
+Put: used to send data to a server to update resource (multiple requests only get one resource while post can get multiple resources)
+
+-if we need an input from user, we will use post method
+
+-if previous process already running, use “ps -ef | grep python” to find active process and then “kill -9 *numbers*”
 
