@@ -49,3 +49,28 @@ Control operators:
 -”-i” flag for case insensitivity in grep
 -to delete with translate “tr”, need -d flag because cannot use empty string as argument
 -cat << “end of file code” > file.txt
+
+16 May 2022
+-#! stands for shebang and is not a comment anymore but for scripting
+-can use any extension but typically .sh (represent shell script)
+-”-e” option aborts script at first error (except in loops, if, etc.)
+-”-v” print command to stdout before executing
+-”-x” similar to -v but expands commands
+-just cause change extension does not give allow it to be executed, need to change permissions with chmod
+-”./” to execute script, it explicitly says search path here
+-to not require command, can add to path, “export PATH=$PATH:./”
+-startup script is .bashrc and .bash_profile
+-variable important part of scripts, refer to with $
+-special inscript variables: 
+$0: name of script
+$1-$9: first 9 arg to script
+$#: how many arg were passed to script
+$@: all the arg supplied to script
+$?: exit status of most recent ran process
+$$: process ID of current script
+-expr command to print arithmetic expression
+-let command assigns to variable, can also use $(())
+-VERIFY? Expr is $(()) and let is (())?
+-to save output of command use $() or ` `
+-array is a list with prespecified number of items (OHISEE)
+

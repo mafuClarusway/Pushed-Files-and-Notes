@@ -65,3 +65,24 @@ Cloud Formation:
 -info on fstab: https://wiki.debian.org/fstab
 -*REMEMBER TO UNMOUNT: sudo umount -a
 -cannot unmount main (root) volume, as that will automatically terminate with the instance
+
+17 May 2022
+ELB: elastic load balancing
+-redirect traffic like traffic cops
+-two components: listener (analyzer), and configurations (series of rules)
+-4 types: application (layer 7), network (layer 4), classic (both, but outdated), and gateway (new, all ports, used for appliances)
+-health check keeps track of application status
+-hands-on 3 problems: DNS problem, …
+-user data settings under EC2, uses root privilege so u do not need to write sudo or anything
+-AWS lets us grab meta data of ec2 using token
+-recall, need to start command, but also enable command (which restarts on startup)
+-httpd is apache
+-tokens to access metadata usually have expiration date of 4 hours
+-target group needs to follow same port as applications.
+-404 is problem, unhealthy report, 200 means running well, okay
+-need to attach target group to ALB or it wont track EC2 instances
+-best practice to select all AZ’s (subnets), incase some go down
+-sometimes your application may be running on different port than its serving, in that time we need to use security group for both ports
+-listener can redirect traffic based on paths
+-ALB creates a DNS name for you (AWESOME!!)
+-For Target Group Attributes, recommend least outstand requests over round robin for load balancing algorithm

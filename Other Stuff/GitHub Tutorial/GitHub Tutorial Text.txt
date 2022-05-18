@@ -1,0 +1,48 @@
+Simple GitHub Tutorial
+
+
+For me, learning Git/GitHub in ITF was not very straightforward, and it took me many tries to get working.  Hopefully this tutorial can help you get started with Git or at least access class files in order to further your studies.
+
+*this tutorial was made for Windows and assumes you have Git/Git Bash installed, if not please download here: https://git-scm.com/
+
+
+Pulling files from GitHub (if you want access to class files)
+
+1) Make sure you have access to the Clarusway AWS Repository here: https://github.com/clarusway/clarusway-aws-11-22.  If you cannot see it or get a 404 error, please contact an instructor to get access.
+
+2) Find a place you want to store the class files (I recommend to make a folder on Desktop called Clarusway-AWS-Files or something).  Now open the folder, right click and click "Git Bash Here".  Alternatively, you can open Git Bash from Start Menu and find the folder you just created using "cd" commands.
+
+3) Now open up the GitHub link: https://github.com/clarusway/clarusway-aws-11-22, click the green Code button, and click the two squares to copy the HTTPS link.
+
+4) Back in Git Bash, type "git clone https://github.com/clarusway/clarusway-aws-11-22.git".  You can paste the link that you just copied.  Now all the class files have been downloaded into your folder!
+
+5) In the future, whenever you want to update the files, make sure you are in the "clarusway-aws-11-22" folder in Git Bash and type "git pull origin main". *save this command!
+
+
+Pushing files to GitHub (if you want to upload your own projects or documents)
+
+1) Find a place you want to store your repository, or folder for the files you plan to upload (I recommend to make a folder called my-aws-repository or something).
+
+2) On GitHub, create a new repository by clicking the green button or via this link: https://github.com/new.  You may add a description, as well as choose settings.  I recommend keeping it public and adding a readme file.
+
+3) Now open up Git Bash in the folder you have the files you want to push.
+
+4) First type "git config --global init.defaultBranch main" (this sets the default branch to main instead of master, in order to be congruent with GitHub).
+
+5) Type "git init".
+
+6) Then, type "git add -A" (-A is for all files, you may specify individual files if you would like)
+
+7) Type "git commit -m 'Comment'" (in place of comment, add a message you would like to leave with your commit, which is possible by -m.  This will help you keep track of your files and is a good practice).
+
+8) Now go to your newly made GitHub repository and click the green Code button, and click the two squares to copy the HTTPS link there.
+
+9) Go back to Git Bash and type "git remote add origin https://github.com/mafuClarusway/my-aws-repository.git", where you paste the link you just copied.
+
+10) Finally, type "git push -u -f origin main" (-u is to set GitHub as default origin, and -f is to force the remote repository to update to your local).  Now you have pushed your projects to GitHub!
+
+11) In the future, whenever you want to update the files, make sure you are in your repository folder (e.g. "my-aws-repository" folder) in Git Bash, and type these three commands:
+git add -A
+git commit -m 'Comment'
+git push -u -f origin main
+*save these commands!
