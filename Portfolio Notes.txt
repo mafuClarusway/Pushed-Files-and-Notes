@@ -37,7 +37,33 @@ Delete: delete specified resources
 Head: ask for information about document not the document itself (metadata)
 Put: used to send data to a server to update resource (multiple requests only get one resource while post can get multiple resources)
 
--if we need an input from user, we will use post method
+-if we need an input from user, we will use POST method
 
 -if previous process already running, use “ps -ef | grep python” to find active process and then “kill -9 *numbers*”
 
+
+18 May 2022
+EC2 Userdata Notes:
+-first thing to do when get into an EC2 for the first time is to update (e.g. sudo yum update -y)
+-apache follows folder (/var/www/) to deploy application
+-”sudo yum install httpd -y” (dont forget -y)
+-click raw on github for the raw address to access it
+-”sudo wget ${FOLDER}cat0.jpg” to grab files
+-”sudo systemctl start httpd” to start apache
+CloudFormation Notes:
+-teraform is one of the most popular in the field (we will learn later and focus for now on CFN)
+-AWS template version: AWS version so that it knows how to read file
+-Description: human readable description of template; in Devops recommend to write good comments others can understand.  Use pipe “|” if u want to write more than one line.
+*My thoughts: keep descriptions/comments simple, short, and easy to understand or else it’s just a bunch of gibberish no one will want to read or try to understand.
+-Parameters: stuff u can set
+-Metadata: by default some metadata is generated, but this is for more
+-parameter vs mapping: parameter defined by users, but users dont see mappings.  Mappings decided by values depending on region or machine type, etc.
+-conditions: allow to use logic based resources to modify values.  Can create different environments within the infrastructure depending on conditions.
+-resources: single most important section, since primary job is to provision the resources.  Resources are the ONLY required part of the CFN template.  2 main part, type and properties.
+-output: can do shortcut like ec2 ip or somethin
+
+-some companies prefer dedicated host and not using AWS resources
+-validate template in designer
+-need to change github link and something else? 
+-Need to go over VOD cuz slacking lol
+-need to change name
