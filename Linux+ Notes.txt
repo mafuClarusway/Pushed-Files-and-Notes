@@ -61,7 +61,7 @@ Control operators:
 -to not require command, can add to path, “export PATH=$PATH:./”
 -startup script is .bashrc and .bash_profile
 -variable important part of scripts, refer to with $
--special inscript variables: 
+-special inscript variables: (*REMEMBER THESE)
 $0: name of script
 $1-$9: first 9 arg to script
 $#: how many arg were passed to script
@@ -74,3 +74,16 @@ $$: process ID of current script
 -to save output of command use $() or ` `
 -array is a list with prespecified number of items (OHISEE)
 
+19 May 2022
+*LIFE IS THE COMBINATION OF ALL OUR CHOICES, SIMILAR TO SCRIPTING, NEED DIRECTION
+-linux relational operators for numbers are different than normal programming language:  -eq, -ne, -gt, -lt, -ge, -le
+-string comparison use more conventional operator: =, !=, -z (empty string), -n (not empty string)
+.-file test operators: -r, -w, -x, -d, -f, -e, -s
+-end if statement with “fi”
+-if statement format: if [[ $number -gt 10 ]]
+-again -x in #!/bin/bash prints out the inputs
+*A BIG PART OF WHAT WE ARE DOING IS PROBLEM SOLVING (troubleshooting?)
+-very common thing to do with script: check number of parameters, and if its incorrect, exit or give a message.
+-recall, to run system command, use “$(command)”
+-echo with flag “-e” will treat escape characters correctly
+-case statement is a cleaner way to write if, elif, elif, elif, …, else.
