@@ -1,0 +1,3 @@
+#!/bin/bash
+cat event_history.csv | grep serdar | grep i- | cut -d"," -f1,10 | tee presults.txt
+cat presults.txt | grep i- | cut -d'"' -f7 | tee results.txt

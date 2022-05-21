@@ -1,0 +1,34 @@
+display direction to have user to have username and comments as parameter
+
+creates a new user with random password
+set password change requirement to now
+
+
+#!/bin/bash
+#sudo yum update -y
+sudo -i
+read -p "Please enter desired username: " uname
+read -p "Please enter actualy name: " rname
+read -sp "Please input a password: " pword
+
+useradd -c "$rname" $uname
+
+if [ $? -eq 0 ]; 
+then
+	echo -e "\nAccount created"
+	usermod --password $pword $uname
+
+if [ $? -eq 0 ]; 
+then
+	echo -e "\nAccount created"
+	usermod --password $pword $uname
+	passwd -e $uname # force password reset
+
+else
+	echo -e "\nAccount was not created; something went wrong!"
+fi
+	passwd -e $uname # force password reset
+
+else
+	echo -e "\nAccount was not created; something went wrong!"
+fi

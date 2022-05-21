@@ -1,0 +1,20 @@
+Group Notes:
+3 files u need to know:
+etcy/passwd - user info
+etcy/shadow - passwords but encrypted
+etcy/groups - everything about groups
+etcy/login.defs - password settings
+
+-difference in distros like red hat
+
+RHCSC exam: example question: u forgot root pw, what do u do?
+Answer: mount on emergence or rescue target?
+
+Use ` ` or $( ) to run a command in a string.
+
+Systemctl: powerup, enable system stuff.  Run docker containers with runtime.
+-if u want application highly available, have it in multiple locations (multiple AZ’s)
+
+-spot resources- bidding
+
+Neil davis and stephanie maark is good
