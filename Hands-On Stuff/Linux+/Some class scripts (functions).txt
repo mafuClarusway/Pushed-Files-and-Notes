@@ -17,4 +17,4 @@ echo "$num1 + $num2 is $total"
 
 
 
-scp -i "altaz-clarusway.pem" ec2-user@ec2-3-91-21-169.compute-1.amazonaws.com:~/loops/*.* .
+scp -i "altaz-clarusway.pem" ec2-user@ec2-3-91-21-169.compute-1.amazonaws.com:~/loops/*.* ./loops
