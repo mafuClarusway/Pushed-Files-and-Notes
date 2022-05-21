@@ -87,3 +87,37 @@ $$: process ID of current script
 -recall, to run system command, use “$(command)”
 -echo with flag “-e” will treat escape characters correctly
 -case statement is a cleaner way to write if, elif, elif, elif, …, else.
+
+21 May 2022 (last class)
+-”break” will exit the closest? Loop (while or until or for)
+-”continue” skips the rest of the statements and goes back to the top of the loop
+-”for number in {0..9}” for list of numbers
+-”${devops_tools[@]}” for whole list, can use numbers instead of @ for individual 
+-loop syntax is for/while/until -> do -> done
+-invoke function by simply typing name
+-inside a function $1, $2, … are based on invoking function name not script
+-global variable: available to you anywhere, need to declare outside any functions
+-local variable: created inside function and wont affect global variables, cant be used outside
+-recall exit codes and $? will return last exit code, 0 for no error, and 1-255 range for failure
+*MISTAKES ARE THE BEST WAY TO LEARN
+*50% OF ANY JOB IS FIXING PROBLEMS
+
+-sed & awk: two tools used to automate data
+-sed is a stream editor, make changes on the fly.
+-sed outputs to the screen
+-default substitute will do first appearance of each line, sed operates line by line
+-s for substitute, i for case ignore
+-original file stays intact, not changed
+-use sed substitution 
+-example with pipe: ”cat sed.txt | sed 's/linux/ubuntu/gi'” 
+
+-awk is programming language used to manipulate data in columns (ideally)
+-kinda like grep with cut
+-example with pipe: “cat awk.txt | awk -F: '{print $2}'”
+
+*REMEMBER MAN FOR MANPAGES and Help?
+
+-crontab: cron table, cron meaning schedule
+
+-scp use same command as ssh, but with scp and then “.com:~/folder/*.* .”  (last dot means copy here)
+-example command: “scp -i "altaz-clarusway.pem" ec2-user@ec2-3-91-21-169.compute-1.amazonaws.com:~/loops/*.* ./loops”

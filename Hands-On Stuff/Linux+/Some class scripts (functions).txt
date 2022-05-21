@@ -1,0 +1,20 @@
+#!/bin/bash
+GetNumber() {
+        read -p "Enter a number" number
+        return $number
+}
+AddNumber() {
+        let result=$1+$2
+        return $result
+}
+GetNumber
+num1=$?
+GetNumber
+num2=$?
+AddNumber $num1 $num2
+total=$?
+echo "$num1 + $num2 is $total"
+
+
+
+scp -i "altaz-clarusway.pem" ec2-user@ec2-3-91-21-169.compute-1.amazonaws.com:~/loops/*.* .
