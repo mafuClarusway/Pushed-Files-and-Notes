@@ -1,0 +1,4 @@
+# create /home/ec2-user/data
+# /home/ec2-user/data`, `/etc`, `/boot`, and `/usr`
+# place it all in `/mnt/backup` every 5 minutes
+# each file name based on hostname and date-hour-minute of the backup, compressed with .tgz extension.

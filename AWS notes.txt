@@ -86,3 +86,21 @@ ELB: elastic load balancing
 -listener can redirect traffic based on paths
 -ALB creates a DNS name for you (AWESOME!!)
 -For Target Group Attributes, recommend least outstand requests over round robin for load balancing algorithm
+
+23 May 2022
+-topic AMI’s and snapshots
+-3 types of AMI: public, private, paid
+-snapshot is a point in time copy of either EBS (memory) or the instance itself (EC2)
+-use of snapshot:
+	-backups
+	-create an ami
+	-create a volume
+-snapshot is incremental storage and stored in amazon s3
+-if u delete a snapshot, it can still rebuild the ec2 instance or volume
+-retention: how many days a snapshot goes back
+-loading more on an AMI leads to simplicity (everything already set?), loading less is flexibility (for future programs)
+-easy to build ami, go to the console and type build ami! 
+-remember to install wget for html sites: “yum install wget -y”
+-if u choose storage less than original with an AMI, it should fail
+*snapshot is a copy, nor directions to make a copy, it is the copy after all the installing and userdata has been done
+-another tool sits on top of lifecycle manager called AWS backup, which may be used instead
