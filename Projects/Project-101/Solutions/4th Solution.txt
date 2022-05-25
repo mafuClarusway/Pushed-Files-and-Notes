@@ -1,0 +1,13 @@
+Task 1:
+ip=$(grep PrivateIpAddress info.json | head -n1 | cut -d'"' -f4)
+sed -i "s/ec2-private_ip/$ip/g" terraform.tf
+
+Task 2:
+MY_VAR=$(cat certificate.pem)
+echo $MY_VAR 
+echo -e $MY_VAR > new.pem
+cat new.pem 
+
+Task 3:
+cat auth.log | grep -i "input_userauth_request" | cut -d" " -f9 | uniq -c > invalid_user.sh
+cat auth.log | grep -i "input_userauth_request" | cut -d" " -f10 | uniq -c >> invalid_user.sh 

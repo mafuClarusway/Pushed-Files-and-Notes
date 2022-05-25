@@ -1,10 +1,14 @@
 Command to update github with local changes:
-Git add
+Git add -A
 Git commit -m “...”
-Git push
+Git push -u -f origin main
 
 Command to update local with github changes:
 Git pull
+
+command to do at beginning of ec2 instance:
+sudo yum update -y
+
 
 To do:
 -catch up on preclass

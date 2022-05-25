@@ -1,0 +1,3 @@
+cat event_history.csv | grep -i serdar | grep -i "terminateinstance" | grep -Eo "i-[a-zA-Z0-9]{17}"
+
+	“echo grep -e "serdar.*Terminate*" event_history.csv | grep -o -e "i-[0-9a-f]\{17\}"” thanks laura!

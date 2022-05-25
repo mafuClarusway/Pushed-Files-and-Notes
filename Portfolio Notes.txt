@@ -67,3 +67,24 @@ CloudFormation Notes:
 -need to change github link and something else? 
 -Need to go over VOD cuz slacking lol
 -need to change name
+
+24 May 2022
+-”cat /etc/os-release” to find out OS info
+-with debian need to update and upgrade as well?
+To access project resources:
+-need to “sudo yum update -y”
+-”sudo yum install git -y”
+-”git clone https://github.com/serdarcw/linux_project.git”
+-”ls -al” a for hidden, l for list of info
+-will learn how to backup, learn to create userpassword, string manipulation, get data from log files or big data.
+-Part 1: need to focus how to grab desired information
+-Part 2: user and password script
+-Part 3: Cronjob and backup
+-Part 4: String manipulation
+
+-recommend if write a shell script, write aim or purpose at the beginning of the script
+
+-”watch -n5 ls: to watch folder every 5 second”
+-to deploy backup: “sudo tar -xzvf /mnt/backup/ip-172-31-24-188-2022_05_25_02_26_AM.tgz”
+-in a pipeline cannot manually edit files, can only put in some commands to automate it since we do not touch the files themselves directly
+-”uniq -c” gives count of unique values
