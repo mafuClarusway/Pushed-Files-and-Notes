@@ -104,3 +104,12 @@ ELB: elastic load balancing
 -if u choose storage less than original with an AMI, it should fail
 *snapshot is a copy, nor directions to make a copy, it is the copy after all the installing and userdata has been done
 -another tool sits on top of lifecycle manager called AWS backup, which may be used instead
+
+25 May 2022
+Storage options: file storage, object storage, block storage
+-advantage of file storage is hierarchical structure and ease of sharing
+-advantage of object storage is storing large amount of unorganized data
+-advantage of block storage is processing time as each file is split across multiple blocks
+-5 tb normal S3 single file limit, but on AWS console, 160gb is the limit
+-by default aws replicate data across 3 AZ
+-S3 has static website hosting, not dynamic, so no server, database, or application code 
