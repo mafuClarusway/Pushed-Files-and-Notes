@@ -113,3 +113,9 @@ Storage options: file storage, object storage, block storage
 -5 tb normal S3 single file limit, but on AWS console, 160gb is the limit
 -by default aws replicate data across 3 AZ
 -S3 has static website hosting, not dynamic, so no server, database, or application code 
+
+26 May 2022
+-vertical scaling: modifying the current instance configuration
+-horizontal scaling: multiples the current amount of instances
+-desired capacity is the goal as a result of all the policies set, and the actual capacity will reach that goal
+-load balancer listens to request on port 80 and forwards anything to the target group
