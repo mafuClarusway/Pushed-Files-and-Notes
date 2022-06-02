@@ -1,0 +1,24 @@
+    1  sudo yum update -y
+    2  sudo yum install python -y
+    3  sudo pip install flask -y
+    4  sudo pip3 install flask -y
+    5  sudo pip3 install flask
+    6  pwd
+    7  cd /home/ec2-user
+    8  FOLDER="https://raw.githubusercontent.com/mafuClarusway/my-repository/main/Project-001-Roman-Numerals-Converter"
+    9  wget ${FOLDER}/app.py
+   10  ls
+   11  cat app.py
+   12  mkdir templates
+   13  cd templates
+   14  wget $FOLDER/templates/index.html
+   15  wget $FOLDER/templates/result.html
+   16  ls
+   17  cd ..
+   18  ls
+   19  sudo python3 app.py
+   20  history
+
+
+
+

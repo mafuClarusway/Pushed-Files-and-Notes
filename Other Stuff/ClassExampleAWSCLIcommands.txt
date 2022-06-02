@@ -1,0 +1,59 @@
+aws cli commands to create SG/EC2 and remove them:
+
+aws ec2 create-security-group 
+--group-name roman_numbers_sec_grp 
+--description This Sec Group is allow ssh and http from anywhere
+
+output will be a group ID
+
+to look at info about sec group
+aws ec2 describe-security-groups --group-names roman_numbers_sec_grp
+
+no inbound rules yet, so need to set the rule
+aws ec2 authorize-security-group-ingress 
+    --group-name roman_numbers_sec_grp 
+    --protocol tcp 
+    --port 22 
+    --cidr 0.0.0.00
+
+aws ec2 authorize-security-group-ingress 
+    --group-name roman_numbers_sec_grp 
+    --protocol tcp 
+    --port 80 
+    --cidr 0.0.0.00
+
+to check sec group again
+aws ec2 describe-security-groups --group-names roman_numbers_sec_grp
+
+now to check the latest ami 
+aws ssm get-parameters --names awsserviceami-amazon-linux-latestamzn2-ami-hvm-x86_64-gp2 --region us-east-1
+
+to get specific value of ami, can use json query
+aws ssm get-parameters --names awsserviceami-amazon-linux-latestamzn2-ami-hvm-x86_64-gp2 --region us-east-1 --query 'Parameters[0].Value' --output text
+
+so
+LATEST_AMI=$(aws ssm get-parameters --names awsserviceami-amazon-linux-latestamzn2-ami-hvm-x86_64-gp2 --region us-east-1 --query 'Parameters[0].Value' --output text)
+
+to check 
+echo $LATEST_AMI
+
+now we run ec2 instance (run-instances reference)
+also need to save userdata in a file
+aws ec2 run-instances 
+ --image-id $LATEST_AMI 
+ --count 1 
+ --instance-type t2.micro 
+ --key-name FirstKey 
+ --security-groups roman_numbers_sec_grp 
+ --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=roman_numbers}]' 
+ --user-data filehomeec2-useruserdata.sh
+
+now can check instance id
+aws ec2 describe-instances --filters Name=tagName,Values=roman_numbers --query 'Reservations[].Instances[].InstanceId[]' --output text
+
+can terminate instance with this command and the id
+aws ec2 terminate-instances --instance-ids instance-id
+
+can also delete securty group with this command
+aws ec2 delete-security-group --group-name roman_numbers_sec_grp
+

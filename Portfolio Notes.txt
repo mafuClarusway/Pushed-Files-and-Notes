@@ -88,3 +88,16 @@ To access project resources:
 -to deploy backup: “sudo tar -xzvf /mnt/backup/ip-172-31-24-188-2022_05_25_02_26_AM.tgz”
 -in a pipeline cannot manually edit files, can only put in some commands to automate it since we do not touch the files themselves directly
 -”uniq -c” gives count of unique values
+
+1 Jun 2022
+-before using userdata, try applying the commands 1 by 1 in an EC2 instance just to test it
+-devs usually use “manage.py” instead of “app.py”
+-userdata is first executed from root directory, so need to go to home ec2-user directory
+-user curly braces for variable 
+-linux “bg” + “jobs” to keep process running in background
+-new shell will not have environment variables (again, they are temporary) need bashrc file
+-generally use i am role to connect s3 bucket with ec2 instance, ec2 instance need role to fully access s3 bucket
+-${AWS::Stackname} to access what user input in CFN
+-do not need sudo in userdata, b/c aws executes in root privilege
+-using amazon CLI inside ec2, if we create resources, it will create those for our account
+-check ClassExampleAWSCLIcommands.txt for Amazon CLI code to create and remove security group/EC2
