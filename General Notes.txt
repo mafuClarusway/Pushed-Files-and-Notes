@@ -12,5 +12,6 @@ sudo yum update -y
 
 To do:
 -catch up on preclass
--watch missed session recordings
 -flipgrid
+
+**watch 2 missed AWS session recordings
