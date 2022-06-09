@@ -119,3 +119,16 @@ Storage options: file storage, object storage, block storage
 -horizontal scaling: multiples the current amount of instances
 -desired capacity is the goal as a result of all the policies set, and the actual capacity will reach that goal
 -load balancer listens to request on port 80 and forwards anything to the target group
+
+2 June 2022
+-even within its own services, AWS requires us to grant access in order to replicate bucket, thus we need an IAM role.
+-IAM policies cannot be retrieved by instances or anything so must be attached to a role
+-always clean up resources (buckets, role, policies) after done using/testing, as can always make them again
+
+8 June 2022
+-don't need public IP if on same subnet (to connect to AWS Database)
+-manual DB snapshot if doing a big change
+-a restored DB is a new instance
+-cannot shrink DB size
+-can restore DB via point in time snapshot or by manual snapshot
+-when backing up via manual commands, can affect original database and do single databases at a time
