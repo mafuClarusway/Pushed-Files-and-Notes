@@ -132,3 +132,30 @@ Storage options: file storage, object storage, block storage
 -cannot shrink DB size
 -can restore DB via point in time snapshot or by manual snapshot
 -when backing up via manual commands, can affect original database and do single databases at a time
+
+11 June 2022
+VPC: logically  isolated area where you can launch aws resources in a virtual network that you define
+-some resources dont run inside vpc, (e.g. S3, dynamoDB, IAM)
+-VPC belong to a single region, but can span multiple availability zones (AZ’s)
+-VPC subnet is in one single AZ
+-once you set VPC CIDR, you cannot remake or change base CIDR block
+-subnet CIDR range cannot change at all
+-*FOR EXAM* need to know difference between sec group and NACL
+-public subnet means things on that subnet can go out to the internet, but a private subnet cannot have direct access to the internet
+-3 things to access internet: public IP, public subnet, correct sec groups open
+-for private subnet, need NAT gateway?
+-CIDR: classless inter-domain routing, base address + blocksides
+-remember some IP’s are allocated
+-ec2 on private subnet do not have access to internet through internet gateway.  They need to go through a NAT gateway.
+-again, it is PRIVATE because no direct access to the internet through IGW, it needs something else, i.e. NAT gateway
+-its the route table (slash router) that decide whether a subnet is private or public
+-route table is a set of rules that decide where traffic is directed, one job: “next hop”
+-NACL subnet based, while sec group is instance-based
+-NACL is stateless
+-security groups are statefull
+-if non intended for internet traffic is sent to IGW, it will just reject it
+
+-**REMEMBER 3 THINGS TO CONNECT: Security groups, public IP, and PUBLIC SUBNET (what we learned today)
+
+
+
