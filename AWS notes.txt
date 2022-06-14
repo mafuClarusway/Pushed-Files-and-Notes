@@ -125,6 +125,13 @@ Storage options: file storage, object storage, block storage
 -IAM policies cannot be retrieved by instances or anything so must be attached to a role
 -always clean up resources (buckets, role, policies) after done using/testing, as can always make them again
 
+28 May 2022 (missed class)
+-load balancer bridge traffic from external to internal, includes the ui
+-scaling out vs scaling in (increase # of instance or decrease behind the load balancer)
+-auto scaling also monitors the health and replace impaired instances
+-any time need to build a system or architecture, DRAW IT OUT!!!
+
+
 8 June 2022
 -don't need public IP if on same subnet (to connect to AWS Database)
 -manual DB snapshot if doing a big change
@@ -157,5 +164,13 @@ VPC: logically  isolated area where you can launch aws resources in a virtual ne
 
 -**REMEMBER 3 THINGS TO CONNECT: Security groups, public IP, and PUBLIC SUBNET (what we learned today)
 
-
-
+13 June 2022
+-instances that need private zone: databases, etc
+-NAT gateway so instances in private subnet can connect to services outside to update and stuff
+-NAT gateway should reside in the public subnet
+-in a nutshell NAT gateway gives things in private subnet access to the internet
+-NAT instance was old method on AWS, superseded by the NAT gateway
+-bastion host or jump box, is a server to provide access to a private network from external/internal network
+-within a VPC, all instances have connectivity to each other
+-best practice with bastion host: ssh agent forwarding
+-NAT gateway hosted on public subnet
