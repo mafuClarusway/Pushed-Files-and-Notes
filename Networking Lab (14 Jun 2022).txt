@@ -1,0 +1,137 @@
+-example network/subnet/hosts:
+NNNNNNNN.NNNNNNNNN.SSSSSSSSS.HHHHHHHH
+11111111.111111111.11111111.00000000 (host is 0, others are 1)
+255.255.255.0 (octet decimal form)
+/24 (count the 1’s)
+
+-NEED TO REMEMBER THE FOLLOWING NETWORKING STUFF: (/16 and /24 most important)
+/16 65535 (64k) IPS, 64k-2 hosts (or -5 for aws)
+/17 - 32K
+/18 - 16K 
+/19 - 8K
+/20 - 4K
+/21 - 2048 (2k)
+/22 - 1024 (1k)
+/23 - 512
+/24 - 256 ip’s (8 open bits, so 2^8 = 256), 254 hosts
+/25 - 128
+/26 - 64
+/27 - 32
+/28 - 16
+/29 - 8
+/30 - 4
+/31 - 2
+/32 - 1
+
+*after knowing /16 and /24, can easily figure out the rest
+
+Q1)
+*goal is 255 workstations, so need to go up to 512-2, not 256-2
+11111111.111111111.11111110.00000000 (host is 0, others are 1)
+255.255.254.0
+/23
+*all equivalent, as subnet mask
+
+00000000.0000000.0000xxx0.0000000 (3 bits for subnet)
+So if need 8 subnets,the xxx:
+000
+001
+010
+011
+100
+101
+110
+111
+Adding 0 at end (xxx0), we get: 0, 2, 4, 6, 8, 10, 12, 14
+This is the bit way to do it, other way is to know that 164.10.1.0/23 is not enough to cover 255 workstations, so need 164.10.2.0/23
+So subnets are:
+164.10.0.0/23
+164.10.2.0/23
+164.10.4.0/23
+164.10.6.0/23
+164.10.8.0/23
+164.10.10.0/23
+164.10.12.0/23
+164.10.14.0/23
+Broadcast is:
+164.10.1.255/23
+164.10.3.255/23
+164.10.5.255/23
+164.10.7.255/23
+164.10.9.255/23
+164.10.11.255/23
+164.10.13.255/23
+164.10.15.255/23
+
+Q2) Subnet 172.30.10.0 network with mask of 255.255.255.192, how many usable subnets and how many hosts available.
+11111111.111111.11111111.11000000 == /26
+Two ways to solve number of hosts:
+2^6 -2 = 62 hosts
+/24 = 256
+/25 = 128
+/26 = 64 => 64-2 = 62
+Now to solve number of hosts:
+2^2 = 4
+
+Q3) You are asked to figure out how many host addresses (or IP’s)  you need for your network.  Which item(s) do you need to take into account?
+The subnet broadcast address
+The subnet network address
+Each computer in the building
+Each WAN connection
+Each network interface connection
+
+My guess is D and B
+
+Correct answer is A, B, E
+
+*WAN is outside connection so incorrect
+*Its not computers since can have computers with multiple IP or no IP.
+
+Q4) You are told your client has subnet mask of 255.255.255.248.  How many hosts and subnets are there.
+D) 8190 subnet and 6 hosts
+Cause:
+1x8.1x8.1x8.1x5 0x3
+/29 subnet mask
+
+*practically some routers dont allow first and last subnet (just like hosts), so -2
+*cannot actually calculate number of subnets here, only number of hosts, so answer is process of elimination
+
+Q5) On a class B network with a 10 bit subnet mask, how would you write the subnet mask?
+Class A: /8
+Class B: /16
+Class C: /24
+
+B: 1x8.1x8.1x8.1x2 0x6
+255.255.255.192
+
+Q6) How many hosts/networks are available in using a netmask of 255.255.254.0
+My work: 1 bit borrowed, so /23 which is /24 hosts * 2, or 256*2 = 512 -2 = 510
+Alternatively:
+2^9 = 512 -2 = 510 hosts
+
+Q7) What mask will allow at most 14 hosts?
+My work: 256/2=128/2=64/2=32/2=16, so /24 + 4 = /28
+Alternatively: 
+14 hosts => 16 IP’s
+16 IP’s => 2, 3, 4
+11110000 => /28
+Or 
+32-4 (needed bits) = 28
+
+Q8) Having been assigned 172.16.0.0/16 network block.  You are asked to establish 12 subnets.  What would be the mask that allows the creation of 12 subnets?
+1x8.1x8 (fixed, can only play with second two octets).0x8.0x8
+!2 subnets => 1 bit = 2 subnets
+		2 bit = 4 subnets
+		3 bit = 8 subnets
+		4 bit = 16 subnets
+So 4 bits, thus:
+1x8.1x8.1x4 0x4.0.8, giving us /20.
+*Corallary, how many hosts: 2^12 - 2 = 4094
+
+*firewall rules questions…
+
+3 things to check: (cannot access internet)
+Public IP
+Security group (inbound sec grup rule)
+Public subnet (the subnet must have a route directly to the IGW for 0.0.0.0/0 traffic.
+

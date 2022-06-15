@@ -12,3 +12,12 @@ Good practice to always use FQDN: myserver.mydomain.com (not just host name)
 Anything start with 127 is a loopback.
 Everytime browser go to website, doing dns lookup (finding IP from host name)
 Curl returns full page source of website
+
+14 June 2022
+-brainstorming how to connect on premise with AWS
+-direct connect is better performance/speed, connect directly for high speed connectivity, but it is an insecure connection
+-layer VPN on top for security
+-thus we want both direct connect with a VPN for both speed and security
+-this is different then regular VPN and is actually called site-to-site VPN, to connect AWS with data center
+-VPN is the tunnel, SSL/TLS is the encryption methodology to make the VPN tunnel
+-0.0.0.0/0 doesnt only mean internet, but everything else
