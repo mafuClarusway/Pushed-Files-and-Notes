@@ -174,3 +174,11 @@ VPC: logically  isolated area where you can launch aws resources in a virtual ne
 -within a VPC, all instances have connectivity to each other
 -best practice with bastion host: ssh agent forwarding
 -NAT gateway hosted on public subnet
+
+15 Jun 2022
+-VPC endpoint allows privately connect VPC to AWS services, a shortcut, without going through internet
+-VPC peering connects two VPC’s, allows direct connection between instances in different endpoints
+-2 common remote connectivity option is VPN and direct connect
+-2 VPN, site-to-site or client VPN
+-VPN happens through internet
+-direct connect endpoint allows quicker and non public direct access to AWS services
