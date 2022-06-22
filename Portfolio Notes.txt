@@ -101,3 +101,26 @@ To access project resources:
 -do not need sudo in userdata, b/c aws executes in root privilege
 -using amazon CLI inside ec2, if we create resources, it will create those for our account
 -check ClassExampleAWSCLIcommands.txt for Amazon CLI code to create and remove security group/EC2
+
+21 Jun 2022
+*PHONEBOOK APP PROJECT SESSIONS
+-Phonebook project: setup cloudformation template, and use autoscaling group, security group, RDS database
+-can link multiple machines to one DNS to display app/website, and using the Application Load Balancer which protects from downed instances among other things, preventing potential traffic problems
+-autoscaling group will create/reduce new machines based on workload
+-in project we can just use default vpc, but for real projects, prefer to create and use a VPC generally
+-generally prefer to put EC2 instance, RDS in private subnet, while ALB in public subnet, need to protect ec2 instance/rds like a chess player
+-need to give a template to autoscaling group to make new machines (launch template)
+-which kind of host/VM is used for RDS?   Its created on ec2 instance actually
+-hard part of application is database endpoint
+-use private github repo for this project, need to use token to reach it
+-recommended to run the APP before cloudformation or CLI on testing environment, to ensure the app runs perfectly
+-can be tricky to get database endpoint during app creation, so need to read it within the CFN
+-the two lines db_endpoint control this process of getting this database endpoint
+*EXAM QUESTION: how many subnets for application load balancer at least?  2
+-in our environment need to restrict traffic to the ec2 instances, allow only alb
+-basically create a security group for ALB, and use that group name for the ec2 instances
+-for ec2, instead of 0.0.0.0/0, we use ALBSecGroup on port 80
+-same usage for RDS, only ec2 instances reach rds instance
+-only VM with EC2SecGroup can reach RDS on port 3306
+-as devops we can use our own IP to test things, but in production environment, we want to protect ec2 instances/RDS with security groups
+-in practice, ALB should have ports open of both the target group and the listener
