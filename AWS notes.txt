@@ -182,3 +182,11 @@ VPC: logically  isolated area where you can launch aws resources in a virtual ne
 -2 VPN, site-to-site or client VPN
 -VPN happens through internet
 -direct connect endpoint allows quicker and non public direct access to AWS services
+
+16 Jun 2022
+-DNS translate human readable domain names to machine readable IP addresses
+-Route 53 has 3 key function: routing, DNS health checks, domain name registration
+-TTL is caching time
+
+22 Jun 2022
+-goal of cloudfront is to improve performance and provide faster distribution of web content
