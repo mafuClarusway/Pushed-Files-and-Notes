@@ -190,3 +190,23 @@ VPC: logically  isolated area where you can launch aws resources in a virtual ne
 
 22 Jun 2022
 -goal of cloudfront is to improve performance and provide faster distribution of web content
+
+23 Jun 2022
+Elastic Beanstalk:
+-elastic beanstalk is example of platform as a service (everything but data/app is automated)
+-AWS is example of infrastructure as a service
+-lambda function is example of function as a service
+-google drive/facebook as example of software as a service
+-elastic beanstalk handles many aspects of app deployment
+-beanstalk does a lot more than CFN, CFN is simply provision resource, while beanstalk can directly deal with app deployment
+-elastic beanstalk is a collection of environments, application versions, and configurations
+-environment is a collection of AWS resources
+-2 environment tiers: web app tier, and a backend work environment tier
+-need to handle all configuration under elastic beanstalk (not edit ec2 itself)
+
+Boto3:
+-boto3 is a python sdk for amazon webservices
+-enables to create, update and delete AWS resource with python scripts, basically a python library
+-2 most commonly used features of boto3 are client and resources
+-client is more low level, while resource is high level, object oriented API
+
