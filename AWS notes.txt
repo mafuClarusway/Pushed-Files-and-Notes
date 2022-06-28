@@ -210,3 +210,17 @@ Boto3:
 -2 most commonly used features of boto3 are client and resources
 -client is more low level, while resource is high level, object oriented API
 
+25 June 2022
+*was half asleep, please review session to write down the important stuff!!
+
+27 June 2022
+*SERVERLESS doesnt mean no server just we dont interact with one (it is automated in background)
+-AWS lambda is the first FaaS (function as a service) among the global public cloud products
+-15 min limitation on lambda function
+-websocket API for real time communication app
+-when creating lambda function, need an IAM role to give it permissions
+-when writing lambda code, use print, or preferably, a logger, to log the steps so when look at cloudwatch log output, can see what the lambda function was doing 
+-if want code to run each time lambda function is used, put it in the lambda handler block
+-Postman is helpful, can invoke any wep API method.
+-AWS lambda is a container (self contained with its own OS and initializations)  
+-api gateway use mock integration type to test ingregration
