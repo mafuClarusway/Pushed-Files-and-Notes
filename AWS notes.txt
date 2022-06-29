@@ -224,3 +224,6 @@ Boto3:
 -Postman is helpful, can invoke any wep API method.
 -AWS lambda is a container (self contained with its own OS and initializations)  
 -api gateway use mock integration type to test ingregration
+
+28 Jun 2022
+-important features of Cloudwatch: monitoring, alarms, logs
