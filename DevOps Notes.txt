@@ -1,0 +1,4 @@
+Intro to DevOps - 20 July 2022
+-devops is a philosophy/mindset/culture
+-similar stuff previously before agile and waterfall method, was known simply as operations
+-devops is a SDA (software development approach) which involves continusous development, continueous testing, contineous integration, contineous deployment, and continuous monitoring

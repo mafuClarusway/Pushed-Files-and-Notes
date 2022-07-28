@@ -1,0 +1,79 @@
+Introduction:
+Hello, my name is Matt and I live in Virginia and do not have much IT background but have spent a lot of time on the computer.   I had always wanted to learn how to code better and through Claruswya, learning coding and AWS has been very fun and eye-opening and I hope DevOps will be the same!  I hope to learn as much as I can and get a job in the field.
+
+Terraform Notes
+
+20 July 2022
+
+-ask more questions with mic, good practice for company, will help get job easier
+-terraform is a tool for building, changing, and managing infrastructure in a safe, repeatable way
+-IaC (infrastructure as a code) helps to document and allow everyone to understand how you build something and manage something
+-A simple workflow: scope, author, initialize, plan & apply
+-need to run terraform init to initialize or it will not work
+-state + config file = terraform plan
+-provider responsible for understanding API interaction and has its own documentation
+-module is a set of terraform config files
+-backend has sensitive info and determine how stat is loaded and operations are executed
+-IN CLASS we won't use Terraform locally, but use EC2 to run it
+-terraform uses HCL, human readable language created by HashiCorp
+-terraform is platform agnostic (deal with several different clouds at once using a managed heterogeneous environment)
+-terraform better for infrastructure, while ansible better for configuring that infrastructure
+-Instructor Mustafa prefers Terraform as it is well documented and easy to use, he would choose it over other tools
+-recommended Chocolatey (packet manager) and WSL (linux terminal, Ubuntu recommend)
+-3 ways to connect ec2 terraform to aws can do role login, environment variable, or hard code login (3rd not recommended for security)
+-not only need to connect terraform to aws login, but need to attach role to ec2
+-NOT RECOMMENDED TO HARDCODE UR AWS CREDENTIALS 
+-amazon ami’s are region based 
+-me: terraform is like a generalize cloudformation usable by all downloaded locally (kinda like git)
+-me: terraform command line usage, general usability, and safety features reminds me of git, but it's much more powerful in what it can do
+-me: the way terraform previews and applies changes to files has some similarities to git, but it can do so much more
+
+21 July 2022
+-main reason to use IAM role is security concerns
+-best IAM practice is give the least access
+*KEEP GITHUB REPO UPDATED WITH HANDSON S AN STUFF
+-under main.tf make sure to use version, as things make break if things aren't labeled
+-make sure to set constraint for terraform to allow future versions to work “~>”
+-in real life situation make sure AMI matches region as sometimes that can be different
+-terraform validate helps with typos while terraform fmt helps with spaces
+-using terraform console, get get metadata from things we created
+-How to get existence information on resources?  Terraform console
+-terraform graph gives code to use on a special website to show a graphical visual relationship between the resources
+-need to output things for automation and also because other ppl will need the dynamic values
+-idea of infrastructure as a code, is to use the same code to make as many resources we want, but in our case we need to parameterize the ami id or bucket name since that can change
+-separate variables.tf file
+-can change variable name in CLI itself using -var=”variable name=name”
+-can also change using environment variables using linux export, as long as the variable name is formatted like TF_VAR_variablename=name
+-recall, to remove environment variable, use “unset” in linux
+*terraform very very hot right now in devops
+-can ask custom validation checks in terraform
+*instructor doesnt run terraform but everything from git at work
+*HW: TRY CUSTOM VALIDATION RULES: https://www.terraform.io/language/values/variables#type-constraints
+-can seperate all the files in a main.tf file and put it in separate files like providers.tf, locals.tf, variables.tf, etc.  realistically, don't even use main.tf file, but separate tasks into different files
+-cannot have resources with same name in tf file
+-[*] splat operation: https://www.terraform.io/language/expressions/splat
+-foreach requires a set so need to change list to set
+-real life scenario some companies put ppl IP address into the policy for their personal bucket
+-for_each and each.value are keywords
+*AS DEVOPS, MAIN GOAL IS TO PROVIDE SUPPORT TO QA ENGINEERS and devs?
+
+27 July 2022
+*make sure to have good descriptions and stuff for your documents/repos
+*make sure to always read read-me files
+*no magic, we solve issue reading documentation
+*always write comments in code to help remember/document
+*always document, may think u will remember, but as time passes, u will forget
+*nothing stupid about writing comments and documentation
+*thing about modules, want be able to use it again and again, parameterize the name
+-readme files have extension .md
+-keyname coming from variable.tf
+*can put on resume “published custom modules on terraform registry”
+-should not merge to main, but push to branch
+-get code reviewed by someone technical
+-use versioning in code, so u know what you are expecting
+-if doing hands on chain, parametrize more things and make it more complicated
+-need “workspaces” to separate state files, or can just use folder structure *INTERVIEW QUESTION*
+-production on t2.small usually not micro
+-not recommended to have statefile locally
+-usually keep backend info in a separate backend.tf file
+-recommended to lock terraform version to something
