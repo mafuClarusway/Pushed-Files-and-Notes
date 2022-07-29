@@ -1,0 +1,24 @@
+28 July 2022
+*MAKE SURE I DEPLOY PROJECTS
+*TRY TO UNDERSTAND THEORY BEFORE HANDS ON (i think this is my strength?)
+-whenever u hear microservices, means containers
+-idea of Docker is that it's easy to replace containers
+-disadvantage of container, is if host operating system goes down, all containers go down
+-docker daemon backend
+-docker cli frontend
+-rest api connects the twos
+-try to stick with official Docker images
+*can run multiple containers on one EC2
+-*interview if u want to interactively access running docker container, use “it”
+-can “harden” docker images for security
+-separation of duties, always do things on seperate servers
+-recall, systemctl enable means it can autostart on restart
+-docker-compose to build multistage docker images
+*interview question: managing many accounts with CFN, use stack sets
+*another question: can create terraform or cloudformation with null resource if need to run something and get outputs
+*3 private subnets 10.0.0, 172, 198?
+-for CFN documentation, look at return values (important) [for terraform its output values]
+-for output, need export name to use in another cfn stack
+*another ?: how would u use nested values in cfn?  Outputs
+-flags -i and -t will go into the docker container
+*me: docker containers are so barebones, they dont even have vim!!
