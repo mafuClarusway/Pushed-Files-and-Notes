@@ -9,7 +9,7 @@ Parameters:
   KeyPairName:
     Description: Enter the name of your Key Pair for SSH connections.
     Type: String
-    Default: call.training
+    Default: FirstKey
 
 Resources:
   DockerMachineSecurityGroup:
@@ -36,6 +36,7 @@ Resources:
       UserData:
         Fn::Base64: |
           #!/bin/bash
+          sudo su -
           yum update -y
           amazon-linux-extras install docker -y
           systemctl start docker

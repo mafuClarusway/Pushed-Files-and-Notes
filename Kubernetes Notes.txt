@@ -1,0 +1,92 @@
+10 Aug 2022
+-in dev can be fine for 1 worker node
+-in prod, minimum 3 or 5 of worker nodes
+-kubernetes is cloud agnostic
+-minicube is a single node that acts as control plane + child node
+*Typical interview question: explain architecture of kubernetes cluster
+-most of the time they will have ingress or load balancer (backend of incoming request)
+-typically, pod isn't reliable, so want to link request to a service
+*what is a service?  It is a object in kubernetes.
+*IRL setting: when u use EKS cluster, subnetting is important, because eks automatically gets ip from the subnet its deployed to, may need to attach another cidr block
+-create vs apply, create only first time, always use apply
+*interview question how would u get into pod?  “kubectl exec -it NAME – sh”
+-pod can communicate with each other over internal IP
+-new pod automatically created after deleting one, but the IP is different now
+-this is why we need service since the IP will change
+-can overwrite yaml file with CLI command (but this is bad practice, the better practice is to edit the yaml file directly)
+-also would not store yaml file on the server, but store on like a github repo (good practice)
+-thus so important to use source version control: e.g. bitbucket, github, etc.
+-after applying a service, do not need to worry about IPs of individual pods; now we have a cluster IP
+-under describe “labels” only for metadata (different than matching tags)
+-under describe, “endpoints” is all the pods in the service, including port number
+-difference between ping and curl (ping use icmp, curl uses tcp), so ping is blocked
+-serve the application from the worker node
+-main diff between nodeport and clusterIP: first is global, second is internal
+-under one load balancer, can have multiple nodeports
+-for each service, to get an IP address, need to have a load balancer for each service
+-in that case, we use something called ingress, save money compared to load balancer
+-can only use load balancer with like azure, gpc, aws, but not on-prem.
+-need something like metalLB (baremetal load balancer)
+-note, if dont assign port for NodePort, will give random between: 30000-32767
+-better practice, to just assign port
+*FYI IPv4 is computer, smartwatches and cell phone may not be able to hit it
+-sticky sessions: u want to send same customer to same worker node.  
+-each service created automatically will be associated to and endpoint by associated labels
+TO SUMMARIZE:
+if u add label to service, u have to add same label to pods, otherwise u will not see the pods under that service
+If u add label to pod, do not need to label service
+-”kubectl delete -f” removes all services and pods and apps, but not the files
+-”kubectl get ns” to get default kubernetes namespace
+-in real life: never use default namespace, but a dedicated one
+
+11 Aug 2022
+-worker node is like ec2 instance
+-persistent volume is a level of abstraction for the physical persistent volume so u can reserve specific volume for the node
+*INTERVIEW QUESTION!  Persistent volume vs persistent volume claim
+-”storage class” will help automate storage and claim it, its a dynamic way of handling volume in kubernetes
+-attaching ebs blocks and is a static and manual way to handle storage
+-right now, it can be confusing, but we are creating volume at abstraction so not really??  But just claiming spots? (me) 
+-the volume name has to match the volumemount name
+-nodeport exposes the pods running to the outside world
+-during p4: emptydir part, we are in POD not container
+*STICK SESSIONS, or NODE/SESSION AFFINITY
+
+15 aug 2022
+-metric server will monitor cpu and RAM of pods
+-Resource units in kubernetes: 1 CPU core = 1000 mili cpu’s
+-deployment and service can be put into one full for ease of use/mind
+-in autoscaling, similar to aws, need launch template/configuration for each instance (node)
+-need to make hpa (horizontal pod autoscaler)
+-metric server is actually a deployment in kubernetes
+-rbac: role based access control (IAM for kubernetes)
+-”--rm” stop and remove, remove when u exit out
+-need to add IAM role to ec2 instance which will allow full access to ec2, as well as IAM role (if using storage class) to memory, .e.g EKS, EBS, etc.
+
+18 Aug 2022
+-storageclass
+-HELM IS repository for k8 
+
+24 Aug 2022
+-use helm instead of kubectl
+-helm umbrella chart
+-typical 3 tier application: frontend, backend, DB
+
+https://i.imgur.com/GuLchL8.png
+
+Centos -> yum -> .rpm
+Ubuntu -> apt
+Python -> pip3
+-Helm2 rely on tiller, but helm3 communicate directly with cupeapi
+*appVersion: 8.0.30
+-major version 8, minor version 0, patch 30
+-chart version and app version different
+-under templates folder, is all the yaml files for the k8 settings we did before, where as outside is the bigger picture
+-”--dry-run” is terraform plan, show changes without applying changes
+*me: Helm for k8, similar to cfn or terraform for Docker.  Obviously u already have master nodes to do all the work but helm just automates all of that.
+-can pass own variables with “--set”
+-load balancer needs certificate for security
+-helm template engine
+-linux need to add to path!! 
+*always good idea to compile cli in a separate notepad!
+*RESUME ENTRY I BUILD A HELM RESPOSITYORY USING CHART MUSEUM
+-not only need to change Chart.yaml, need to change application template file 

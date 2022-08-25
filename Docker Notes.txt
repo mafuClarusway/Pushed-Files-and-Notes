@@ -22,3 +22,37 @@
 *another ?: how would u use nested values in cfn?  Outputs
 -flags -i and -t will go into the docker container
 *me: docker containers are so barebones, they dont even have vim!!
+
+1 Aug 2022
+-always plan for worst in subnetting, give them more IP’s
+-try not to use “prune” or “rm -rf”
+-in older version if linux, its server, not systemctl
+-docker swarm vs local
+-if u dont put anything after image name, it will get latest, not recommended.
+-with hostnetwork, we dont havnt to put port “:8080”
+-cntrl P + Q = gracefully exit out (without exiting)
+-”--rm” means it will be removed as well if stopped
+*extra stuff: docker namespaces
+-namespace is a layer of isolation where u isolate workspace? (similar to linux and kubernetes)
+-”docker run --rm -v /etc:/root/etc -it ubuntu”
+-we learned “-v” before, it will use volumes host:(mounttarget), “it” is interactively, so goes in right away
+-SOLUTION USE NAMESPACE (problem, root on container will have root access to host)
+
+4 Aug 2022
+-docker compose is the manager/orchestrator, but actual build is done by dockerfile
+-single extra space can ruin yaml file, there are website out there to check if code is okay
+-in docker compose file, order doesnt matter as long as they are properly indented and labeled
+-both .yaml and .yml are correct
+-”docker-compose” makes things easier and does more things with less commands (orchestration)
+-recall from linux class, renaming can be done by mv command
+-recall linux, “-p” for folder in folder if it doesnt exist
+-redis is like dynamo db, key value database, highly preferred by developers because easy to use and very fast
+-INTERVIEW: may expect common port numbers
+-can have multiple files but only a single docker compose
+-in real life scenario use “Secret” and not expose password/sensitive data
+-can add pw to local, and git ignore so it wont be pushed
+-even more secure is to create a docker environment variable
+-spend a lot of time going thru documentation when starting something new
+*ME: NOPE JUST COPY PASTE LOL!!  (but srsly, i need to practice reading and learning from documentation more)
+-old terminal ctrl insert, shift insert, may not support ctrl v, ctrl c
+
