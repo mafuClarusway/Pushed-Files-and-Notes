@@ -1,0 +1,52 @@
+Ansible Notes
+
+25 Aug 2022
+-something called ansibleTower -AWX (redhat)
+-used to manage config on your servers
+-what makes ansible standout is that it is agent-less 
+-it does this by using ssh connection
+-ansible control node is a server where u are controlling all servers in the pool (e.g. all the worker nodes, or all the databases, or all the mail servers, etc.)
+-recall 3 private subnets: 192.x.x.x, 172.x.x.x, or 10.x.x.x)
+-in a real life setting, control has private IP, and u connect with VPN connection from private  subnet
+https://i.imgur.com/EeW1BFg.png
+-ansible recommended for: CONFIGURATION MANAGEMENT
+-can write linux script to do what ansibile does, but may require complex scripts
+-play - ad hoc command, one time task u run from control node
+-playbook - group of plays
+-ansible-galaxy
+-role - multiple playbooks
+-module - task that ansible does each time u use it
+-ansible use python for custom module
+-prefer to use ubuntu for ansible since its comes with python3, whereas amazon 2 linux only comes with python2
+-static vs dynamic inventory
+-static inventory is for things that wont change like fax server, email server
+-dynamic inventory is for things that change like ASG (autoscaling groups)
+-modules and plugins in hidden file .ansible 
+-by default ansible comes with like 200 modules? Probably change by now (750?)
+-in company need to work with existing infrastructure. 
+*TIP- never work with original config files
+*TIP2- always make a copy before making changes
+-no ansible.cfg, forks = 5 means 5 servers at a time, so locks it
+-in linux, “uptime” show show long the server has been up
+*has seen server run like 7 years, some can be long time, especially on prem servers
+*REMEMBER AWK VS SED
+-difference between command and shell, is that command does not take special characters like “>>” or “|”
+*TIP3 NEVER SAVE ANYTHING INTO UR ETC DIRECTORY
+-”-b” is escalate privilege, run as sudo
+-need “-b” for write permission like restart, but not read permission like status
+-ansible, since configuration manager, uses a lot of linux (*me: while modules use python?)
+*What are way of troubleshooting linux system?  ‘df -h’
+-by default, ansible uses the ad-hoc module, so dont need -m anything, and it will paste the commands as is on the nodes
+-might be better to have our own ansible user no matter the OS
+*NODES DO NOT NEED ANSIBLE FOR THIS TO WORK!!! AGENTLESS EZ Clap
+*jeff geerling great at ansible
+-absent - remove/delete
+-present - install
+-latest - install/upgrade to latest version
+-package module is a python script that extracts the operating system and *me: Generalizes things
+-last thing can have own inventory, and real life scenario, use own inventory
+-vars are ansible variables, NOT SIMPLE LINUX ENVIRONMENT VARIABLES
+
+
+
+

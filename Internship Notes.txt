@@ -1,0 +1,19 @@
+Internship:
+
+First meeting notes:
+-important to actively involve in projects
+-work with teammates and closely with mentors to get most out of projects
+-will use gitlab issues for task tracking (so need to learn gitlab, and relevant tools)
+-after graduation (module 2), will be given tasks, and be held responsible for those tasks
+-recommend 20 hours+ agreement (active participation)
+-actively communication with immediate manager (active participation)
+-if put in the performance, during active particiaption, should find a job in 3-4 months
+
+26 Aug 2022 (2nd video):
+-again split passive/active
+-passive for 3 months during DevOps module
+-won't be assigned any real project during passive mode
+-want us to learn how to use GitLab
+-use GitLab as project management tool, combination of Jira and GitHub
+-provide nyotech with update resume so tehy con respond to companies asking about our performance, they wont lie but tell truth about what we were working on so make sure to do all assignments and projects!
+-can use vincenzo as ref check

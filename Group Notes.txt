@@ -1,3 +1,4 @@
+
 Group Notes:
 3 files u need to know:
 etcy/passwd - user info
@@ -18,3 +19,16 @@ Systemctl: powerup, enable system stuff.  Run docker containers with runtime.
 -spot resources- bidding
 
 Neil davis and stephanie maark is good
+
+26 aug 2022
+-listening not everything, need to apply
+-hands on better than just listening  
+-minikube to create single node on local 
+-if kubernetes expert, will definitley get helm question
+-will get this question in k8 test, how to display resource (kubectl top pod)
+-CKA exam (admin) is a practical one, where give u website (kubernetes.io) and tests how many problem u can answer
+-EKS in amazon doesnt let u handle master nodes
+-for cloud compute exam, need to memorize all of amazon services
+-when practice cloud practictioner exam, need to learn diff between services
+-scale down give u pain, scale up is okay sometimes
+-HW: GO OVER BASH SCRIPT

@@ -8,10 +8,3 @@ Git pull
 
 command to do at beginning of ec2 instance:
 sudo yum update -y
-
-
-To do:
--catch up on preclass
--flipgrid
-
-**watch 2 missed AWS session recordings
