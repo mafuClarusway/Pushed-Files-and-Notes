@@ -1,2 +1,3 @@
 # Pushed-Files-and-Notes
 to be able to keep track of notes and other documents.
+To be able to keep track of notes and other documents.  The class notes are from Clarusway bootcamp for modules ITF, AWS, & DevOps spanning January-September 2022.  Notes generally include major points, as well as possible interview questions and important advice.  If there is time, I will compile lists of interview questions and advice at the end of the bootcamp.
