@@ -55,4 +55,3 @@
 -spend a lot of time going thru documentation when starting something new
 *ME: NOPE JUST COPY PASTE LOL!!  (but srsly, i need to practice reading and learning from documentation more)
 -old terminal ctrl insert, shift insert, may not support ctrl v, ctrl c
-

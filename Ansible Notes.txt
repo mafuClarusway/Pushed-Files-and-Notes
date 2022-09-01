@@ -47,6 +47,41 @@ https://i.imgur.com/EeW1BFg.png
 -last thing can have own inventory, and real life scenario, use own inventory
 -vars are ansible variables, NOT SIMPLE LINUX ENVIRONMENT VARIABLES
 
+27 aug 2022
+-need addresses to call nodes, or call as a group
+-playbook written in yaml format
+-PLAYBOOK contains plays, which contain tasks, which call modules
+-tasks run sequentially
+-inventory.ini files contains all ur nodes
+-module also referred to as “tasks plugins” or “library plugins”
+-modules should be idempotent, 
 
+-SO to initialize, can use /etc/ansible/hosts file or use inventory.txt file, but need ansible.config file to specify if u want to use inventory.txt (this is more common)
+-use -i flag to use inventory 
+-”ansible-playbook -i inventory.txt playbook1.yml”
+-terraform file creates separate inventory file (need to specify inventory.txt file)
+Me: inventory pretty much holds all the nodes, ansible variables, etc, to do this stuff
+Me: i believe adhoc/CLI command use linux, while with playbook we are using yaml
+i believe adhoc/CLI commands we used yesterday, we used linux commands like systemctl, while with playbook we are using yaml syntax, 
+
+30 Aug 2022 (29 aug class)
+-secrets manager for ansible
+-before secrets manager, something else was used: sem parameter storage
+-kms is encryption, not secrets manager
+-*interview question: HOW DO U MANAGE SENSITIVE INFORMATION in x, y, z.
+-dynamic inventory is for things that will change
+-dynamic inventory: using aws_ec2 plugin to manage ansible client dynamically
+-QUESTION: by default how many elastic IP can u have (equal to the number of vpcs by default): 5
+-500 limit for IAM role
+-if limit is reached, need to reach to support to get limit increased
+-facts are metadata u get from clients
+-for variables, hostvars vs groupvars
+-hostvars: host specific variables (unique to host)
+-groupvars: group specific variables (by tag.OS: redhat, ubuntu)
+-can group by environment stage, or by OS, or by other stuff
+-again hostnamectl to change name of linux server
+Interview QUESTION: what is metadata server on aws: 169.254.169.254
+Interview question: how would u print something on terminal cli?  Debug: msg: (while running)
+Me: if u are trying to ssh using another local bash window, u may need to ssh with public ip instead
 
 
