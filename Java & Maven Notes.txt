@@ -1,0 +1,46 @@
+3 Sept 2022
+-Project management tool is about a pipeline
+-first step, taking code from source code management
+-first step of devops pipeline is source code files
+-most used Java tools are Maven and Gradle, we will be focusing on Maven
+-Kotlin alternative to Java
+-JVM is virtual machine of java
+-know diff between JVM, JRE, JDK
+-Java Byte-code is platform independent, can work on any OS
+-C/C++ faster than java because source code directly compiles to machine code
+-Java slower but has an intermediary Java Byte-code step
+-compilation vs interpretation
+-interpreter faster
+-JRE: Java Runtime Environment: has a JVM inside
+-JDK: Jada Development Kit, superset of JRE, contains JRE and more tools for devs
+Me: what made java so popular? was it because it is platform independent
+-for dev env, need JDK
+-for stage/prod, just need JRE
+-every source code file is a class file, and every class file is an object
+-class name and file name have to be the same
+-entrypoint for java apps is main method (or function)
+-every java program must have at least one class
+-only one class can have main method, and its the class that JVM will start first
+-comment in Java with //
+-every java statement ends with ;
+-building vs compiling
+-compiling is just a step in building, building is broader
+-you get an artifact (readily available zip file), after building
+-use project management tool like Maven to build and produce an artifact
+-in real  world will have thousands of source code files for one app
+-java provides a tool for zipping and moving source code files easily (jar)
+-using jar is not very practical, so we will use Maven
+-again, main method is entrypoint for any java application with JVM
+-using maven is easier than understanding it because apache documentation and terminology sucks!!
+-building a project has too many steps to follow, but using a project management tool will simplify the process
+-maven automatically creates website to view documentation files
+-easy deployment
+-mvn deploy -> build, create artifact, move
+-in order to use maven, must install jdk
+-every testing starts with unit test and integration tests
+-deploy artifacts: .jar, .ear, .war
+-in root file of maven folder, should be pom.xml file with config details
+-developer make pom file but its our responsibility to modify the pom file
+-pom easier than yaml
+-for each environment should build in different way
+
