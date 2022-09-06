@@ -1,0 +1,60 @@
+locals {
+  description = "FQDN by merging subdomain and registered domain"
+  fqdn = "${var.sub_domain_name}.${var.domain_name}"
+}
+
+resource "aws_route53_health_check" "tf-health-check" {
+  fqdn              = "${local.fqdn}"
+  port              = 80
+  type              = "HTTP"
+  resource_path     = "/"
+  failure_threshold = "3"
+  request_interval  = "30"
+
+  tags = {
+    Name = "${local.fqdn}-tf-health-check"
+  }
+}
+
+resource "aws_route53_zone" "main" {
+  name = var.domain_name
+}
+
+resource "aws_route53_record" "primary" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "${local.fqdn}"
+  type    = "A"
+  #  ttl     = "60"
+
+  failover_routing_policy {
+    type = "PRIMARY"
+  }
+
+  set_identifier  = "primary"
+  health_check_id = aws_route53_health_check.tf-health-check.id
+
+  alias {
+    zone_id                = aws_alb.awscapstoneALB.zone_id
+    name                   = aws_alb.awscapstoneALB.dns_name
+    evaluate_target_health = true
+  }
+}
+
+resource "aws_route53_record" "secondary" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = var.sub_domain_name
+  type    = "A"
+  #  ttl     = "60"
+
+  failover_routing_policy {
+    type = "SECONDARY"
+  }
+
+  set_identifier  = "secondary"
+
+  alias {
+    zone_id                = aws_s3_bucket.failover_bucket.hosted_zone_id
+    name                   = "s3-website-us-east-1.amazonaws.com"
+    evaluate_target_health = false
+  }
+}

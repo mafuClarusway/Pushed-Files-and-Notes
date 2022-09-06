@@ -32,3 +32,8 @@ Neil davis and stephanie maark is good
 -when practice cloud practictioner exam, need to learn diff between services
 -scale down give u pain, scale up is okay sometimes
 -HW: GO OVER BASH SCRIPT
+
+2 sep 2022
+-SCALA?
+-idempotency prevents unnecessary changes
+-difference between cloudfront and global accelerator (both of these services for optimal CDN, whenever u hear "lots of users")

@@ -1,0 +1,34 @@
+Resources:
+  NewHealthCheck: 
+    Type: 'AWS::Route53::HealthCheck'
+    Properties: 
+      HealthCheckConfig: 
+        Port: 80
+        Type: HTTP
+        FullyQualifiedDomainName: !GetAtt NewCloudFront.DomainName
+      HealthCheckTags: 
+        - 
+          Key: Name
+          Value: aws capstone health check
+
+  DNSfailoverPrimary:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: !Sub "${DomainName}."
+      RecordSets:
+        - Name: !Ref FailoverBucket
+          Failover: PRIMARY
+          HealthCheckId: !Ref NewHealthCheck
+          SetIdentifier: "Cloudfront as Primary Record"
+          Type: A
+          AliasTarget: 
+            DNSName: !GetAtt NewCloudFront.DomainName 
+            EvaluateTargetHealth: true
+            HostedZoneId: Z2FDTNDATAQYW2
+        - Name: !Ref FailoverBucket
+          Failover: SECONDARY
+          SetIdentifier: "S3 Bucket for Secondary record type"          
+          Type: A
+          AliasTarget: 
+            DNSName: s3-website-us-east-1.amazonaws.com
+            HostedZoneId: Z3AQBSTGFYJSTF

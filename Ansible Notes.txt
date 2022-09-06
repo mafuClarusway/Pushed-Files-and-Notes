@@ -84,4 +84,19 @@ Interview QUESTION: what is metadata server on aws: 169.254.169.254
 Interview question: how would u print something on terminal cli?  Debug: msg: (while running)
 Me: if u are trying to ssh using another local bash window, u may need to ssh with public ip instead
 
+1 Sept 2022
+-ansible role is like docker image, aws launch template; basically allows reusability
+*Interview question: Explain role directory structure:
+-Role vs Collection
+-Role: set of tasks built into a role with custom vars and etc.
+-Collection: set of roles, plugins, modules
+https://i.imgur.com/rKNVE2G.png
+-we will install terraform one ec2, give it iam role, and then run from there
+-add auto to name.auto.tfvars so terraform will automatically load them
+-never ever put aws secret/access keys in repo
+-in this case we use IAM roles instead of aws secret/access keys
+-have both variables.tf and tfvars to parameterize variables
+-protocol: -1 means all the protocols
+-id_rsa is private, while id_rsa.pub is public
+"By default, when you execute a role, it looks for a file named main.yml in the tasks subdirectory and executes all the tasks listed within it."
 
