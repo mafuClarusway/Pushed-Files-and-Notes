@@ -44,3 +44,10 @@ Me: what made java so popular? was it because it is platform independent
 -pom easier than yaml
 -for each environment should build in different way
 
+6 Sept 2022
+-POM is an xml file
+-diff between json and xml, is xml is for java
+-Project Object Model is startin file and holds configurations
+-first create class file from java file
+-then make jar file
+-from k8, secrest and config maps NOT secure

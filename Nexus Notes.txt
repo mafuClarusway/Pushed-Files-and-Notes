@@ -1,0 +1,65 @@
+NEXUS NOTES
+
+7 Sept 2022
+-first step of pipeline most likely testing phase
+-functional test, user acceptance test, stress test, white box/black box.etc.
+-on order to test application, need it to be running
+-thus must build it
+-produce after the build phase is known as “artifact”, a readily deployable product
+-usually thousands, thousands of file in source code repo
+-thats why we use project management tools, to be able to handle such large amount of files easily
+-really important to understand ARTIFACt, difference between this and source code file
+-we have to deploy these large number of files to an infrastructure, in order to test or use it
+-after building it, get a single JAR file, which is an artifact, an executable and deployable file
+*me: is artifact like a usable/deployable package of all the source code files
+-similar to Dockerfile, the image after build is an artifact
+-artifact repository is also called binary repository
+-these binary code are not stored like github, which is only source code files (SCM) 
+-JAR, EAR, WAR, or even EXE; all called artifacts
+-mvn install -> local host
+-mvn deploy -> remote host -> artifact repository [does not actually deploy, but just copy artifact to repo]
+-these artifact make it easier to work on application
+-nexus and jfrog are most popular artifact repo after dockerhub (which only has docker images)
+https://i.imgur.com/q4Ui5Qi.png
+-if using gitlab, boundary will be inside vpc, github or bitbucket, will be outside of vpc
+-maven use central repo
+-running maven on local computer will create “.m2” to root [maven local repo]
+-CI/CD doesnt use internet to download dependencies, instead the artifact server is configured to act like a mirror, for dependency repo
+-artifact repo also act as a proxy repo
+-will not connect outside of vpc, but stay inside, which will save bandwidth
+-even if central repo is down, the proxy nexus server copied all the necessary dependencies, so will not affect development
+-nexus server sits between build and test of ci/cd pipeline
+-rough draft artifacts are called snapshots
+-other one is called release
+https://i.imgur.com/VdwugS5.png
+-Nexus natively supports Maven and .Net, but for others, maybe need configurations
+-but dont worry, using nexus is easy, and there is no CLI/shell, use web interface
+-saves time when downloading, cause from local server, not internet
+-increase standardization and collaboration
+-you manage what u code in GIT and what u build in Nexus
+-so source code file version control system and artifact repo
+-Git for devs, while Nexus for Ops/DevOps team
+-binary files need metadata to be stored along with them
+-when clone binary, cannot clone dependencies, libraries, etc.
+-nexus requires a powerful node?
+-components and formats
+-anything that u can store on nexus server is called a component (not a big deal), e.g. packages, libraries, containers
+-now formats are important, they are ways of storing components
+-every tool has a different format, e.g. maven2, nuget, docker
+Me: so format is like the current build
+-most important for nexus is respiratory type, its different from format
+-type is like proxy, group, hosted, etc.
+-proxy acts as a cache server from remote repo and serve local developers
+-hosted repo: when components are sharing among diff teams
+-we may create our own dependencies or plugins, or artofacts, which are all stored in hosted repos
+-snapshot is saving the current stage of the application
+-release is like final product, ready to deploy on prod server
+-snapshot is a rough draft
+-how maven decide if push snapshot or release?  By using pom file
+-need snapshot tag at end of version number “v.1.0-SNAPSHOT” in order to send to snapshot
+-so need postfix “-SNAPSHOT” exactly in version tag of POM file
+*IMPORTANT NEED TO KNOW DIFF BETWEEN RELEASE AND SNAPSHOT, REEMBER TO USE -SNAPSHOT
+-one important fact about artifact repo, they dont overwrite., evertime new record is created for each snapshot
+-nexus has high requirement, need lots of RAM/CPU
+
+
